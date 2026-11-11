@@ -1,51 +1,53 @@
-# 同伴观点与行为对LLM合作决策影响的实验
+# Experiments on the Effects of Peer Opinions and Behavior on LLM Cooperation Decisions
 
-在重复公共品博弈中，独立设置同伴的实际贡献与本轮应然观点，考察二者对大语言模型智能体合作决策的影响。项目包含主实验、提示词等义改写实验和2∶1混合伙伴实验，以及提示词、理解检查、模型配置和分析程序。
+English | [简体中文](README_zh.md)
 
-## 实验设置
+This project examines how peer opinions and observed behavior affect cooperation decisions of large language model (LLM) agents in repeated public goods games. It includes the main experiment, a prompt-paraphrasing experiment, and a mixed-partner experiment, together with prompts, comprehension checks, model configurations, and analysis scripts.
 
-四名参与者共同进行10轮游戏，目标LLM决定自己的贡献，其余三名伙伴采用固定策略。每轮每人获得10积分，公共账户中的贡献总额翻倍后由四人均分。
+## Experimental setup
 
-| 实验 | 条件设置 | 每模型规模 |
+Four participants play ten rounds. The target LLM chooses its contribution, while three scripted partners follow fixed contribution strategies. In each round, every participant receives ten points. Contributions to the common account are doubled and divided equally among all four participants.
+
+| Experiment | Conditions | Design per model |
 |---|---|---|
-| 主实验 | 伙伴均贡献10或0 × 主张贡献10、无观点或主张贡献0 | 6条件 × 50次独立游戏 × 10轮 |
-| 提示词等义改写 | 两种伙伴策略 × 合作观点或无观点，使用改写模板 | 4条件 × 50次独立游戏 × 10轮 |
-| 混合伙伴 | 伙伴贡献10/10/0或10/0/0 × 合作观点或无观点 | 4条件 × 50次独立游戏 × 10轮 |
+| Main experiment | All partners contribute 10 or 0 × opinions advocating 10, no opinion, or opinions advocating 0 | 6 conditions × 50 independent games × 10 rounds |
+| Prompt paraphrasing | Two partner strategies × cooperative opinions or no opinion, using paraphrased prompts | 4 conditions × 50 independent games × 10 rounds |
+| Mixed partners | Partner contributions of 10/10/0 or 10/0/0 × cooperative opinions or no opinion | 4 conditions × 50 independent games × 10 rounds |
 
-| 模型 | API标识 | 推理与采样设置 |
+| Model | API identifier | Reasoning and sampling settings |
 |---|---|---|
-| Qwen3.8-Flash | `qwen3.8-flash` | 开启思考，预算1024 token；temperature=0.7，top-p=0.95 |
-| DeepSeek-V4.1-Flash | `deepseek-flash` | 开启思考，reasoning_effort=low；top-p=0.95 |
+| Qwen3.8-Flash | `qwen3.8-flash` | Thinking enabled; budget: 1,024 tokens; temperature=0.7; top-p=0.95 |
+| DeepSeek-V4.1-Flash | `deepseek-flash` | Thinking enabled; reasoning_effort=low; top-p=0.95 |
 | GPT-6-Luna | `gpt-6-luna` | reasoning_effort=low |
 
-输出上限均为8192 token。具体参数见`src`中的配置文件和API模块。
+The output token limit is 8,192 for all three models. See the configuration files and API modules in `src` for details.
 
-## 1 安装与检查
+## 1. Installation and offline checks
 
-使用Python 3.11或更新版本，在项目根目录运行：
+Use Python 3.11 or later. From the project root, run:
 
 ```sh
 python -m pip install -r requirements.txt
 python offline_check.py
 ```
 
-离线检查使用模拟响应，检查收益计算、十轮交互、信息呈现及输出处理，无需API密钥。
+The offline checks use simulated responses to verify payoff calculations, ten-round interactions, information presentation, and output handling. No API key is required.
 
-## 2 配置API密钥
+## 2. Configure API keys
 
-通过环境变量设置所需模型的密钥。PowerShell示例：
+Set the environment variables for the providers you will use. For example, in PowerShell:
 
 ```powershell
-$env:DASHSCOPE_API_KEY = "自己的Qwen密钥"
-$env:DEEPSEEK_API_KEY = "自己的DeepSeek密钥"
-$env:OPENAI_API_KEY = "自己的OpenAI密钥"
+$env:DASHSCOPE_API_KEY = "your-qwen-api-key"
+$env:DEEPSEEK_API_KEY = "your-deepseek-api-key"
+$env:OPENAI_API_KEY = "your-openai-api-key"
 ```
 
-运行前，在配置文件和执行脚本中设置费用估计与本地预算上限。API实验会产生调用费用。
+Before running experiments, configure the cost estimates and local spending limits in the configuration files and execution scripts. API execution incurs charges.
 
-## 3 生成实验计划
+## 3. Prepare an experiment plan
 
-根据需要选择一项：
+Choose the study to prepare:
 
 ```sh
 python reproduce.py --study main
@@ -54,72 +56,72 @@ python reproduce.py --study paraphrase
 python reproduce.py --study mixed
 ```
 
-| `--study` | 内容 |
+| `--study` | Experiment |
 |---|---|
-| `main` | DeepSeek和Qwen主实验，依次执行 |
-| `main-gpt` | GPT主实验 |
-| `paraphrase` | 三模型共用的等义改写实验计划 |
-| `mixed` | 三模型共用的混合伙伴实验计划 |
+| `main` | Main experiment for DeepSeek and Qwen, executed sequentially |
+| `main-gpt` | Main experiment for GPT |
+| `paraphrase` | Prompt-paraphrasing plan for all three models |
+| `mixed` | Mixed-partner plan for all three models |
 
-生成计划不会调用API。命令将打印`PREPARED`目录，该目录位于`src/runs/`，用于下一步的`--run`参数。
+Plan preparation makes no API calls. Each command prints a `PREPARED` directory under `src/runs/`. Use that directory as the `--run` argument in the next step.
 
-## 4 执行实验
+## 4. Run the experiment
 
-将以下路径替换为对应的`PREPARED`目录，并添加`--execute`开始采集：
+Replace each example path with the corresponding `PREPARED` directory and add `--execute` to start collection:
 
 ```sh
-python reproduce.py --study main --execute --run "src/runs/对应main目录"
-python reproduce.py --study main-gpt --execute --run "src/runs/对应main-gpt目录"
-python reproduce.py --study paraphrase --execute --run "src/runs/对应paraphrase目录" --provider qwen
-python reproduce.py --study mixed --execute --run "src/runs/对应mixed目录" --provider deepseek
+python reproduce.py --study main --execute --run "src/runs/your-main-plan"
+python reproduce.py --study main-gpt --execute --run "src/runs/your-main-gpt-plan"
+python reproduce.py --study paraphrase --execute --run "src/runs/your-paraphrase-plan" --provider qwen
+python reproduce.py --study mixed --execute --run "src/runs/your-mixed-plan" --provider deepseek
 ```
 
-两项扩展实验通过`--provider`指定模型，可选`qwen`、`deepseek`或`gpt`；在同一计划下分别执行三次即可完成三模型采集。
+For the two extension experiments, select `qwen`, `deepseek`, or `gpt` with `--provider`. Run each provider separately under the same study plan to collect results for all three models.
 
-程序先进行20项理解检查，全部通过后开始行为实验。技术性未完成游戏由同条件的新游戏补充，直至每条件获得50次完整游戏。如需重新开展整批实验，先重新生成计划。
+The program first administers 20 comprehension checks. Behavioral collection begins after all checks pass. Technically incomplete games are replaced with new games under the same condition until each condition has 50 complete games. Prepare a new plan to start a new batch.
 
-## 5 查看与分析结果
+## 5. Inspect and analyze results
 
-执行程序会打印结果目录，其中主要文件为：
+The execution script prints the results directory. Its main files are:
 
-| 文件 | 内容 |
+| File or directory | Contents |
 |---|---|
-| `plan.json` | 实验配置和任务安排 |
-| `raw.jsonl` | API请求与响应记录 |
-| `decisions.jsonl` | 各轮贡献和收益 |
-| `episodes.jsonl` | 游戏状态及完整贡献历史 |
-| `qualification/` | 理解检查结果 |
-| `complete50_view/` | 每条件50次完整游戏的结果视图 |
+| `plan.json` | Experimental configuration and job schedule |
+| `raw.jsonl` | API requests and responses |
+| `decisions.jsonl` | Contributions and payoffs for each round |
+| `episodes.jsonl` | Game status and complete contribution histories |
+| `qualification/` | Comprehension-check results |
+| `complete50_view/` | Results containing 50 complete games per condition |
 
-对包含`episodes.jsonl`的模型结果目录运行分析：
+Run the analysis on a model results directory containing `episodes.jsonl`:
 
 ```sh
-python analyze.py "src/runs/某次运行/qwen" --output analysis_output/qwen
+python analyze.py "src/runs/your-run/qwen" --output analysis_output/qwen
 ```
 
-将示例路径替换为程序实际输出的模型结果目录。主实验GPT结果直接位于其`PREPARED`目录；其余实验的模型结果位于相应的模型子目录。分析输入可使用原结果目录或其`complete50_view`，选择其中一个即可。
+Replace the example path with the actual output directory. Main-experiment GPT results are stored directly in its `PREPARED` directory; other runs store model results in provider subdirectories. Use either the original results directory or its `complete50_view` as the analysis input.
 
-程序输出平均贡献、合作观点相对无观点的贡献差、95%置信区间及轨迹图。置信区间使用5,000次完整游戏重采样，混合伙伴按少数伙伴身份分层。
+The analysis produces mean contributions, contribution differences between cooperative-opinion and no-opinion conditions, 95% confidence intervals, and trajectory plots. Confidence intervals use 5,000 bootstrap resamples of complete games, stratified by minority-partner identity in the mixed-partner experiment.
 
-仅计算统计结果时可使用：
+To compute statistics without generating plots:
 
 ```sh
-python analyze.py "src/runs/某次运行/qwen" --output analysis_output/qwen --no-plot
+python analyze.py "src/runs/your-run/qwen" --output analysis_output/qwen --no-plot
 ```
 
-## 主要代码
+## Main files
 
-| 文件 | 功能 |
+| File | Purpose |
 |---|---|
-| `reproduce.py` | 统一实验入口 |
-| `src/run_formal_v11.py`、`src/run_gpt_luna_formal.py` | 主实验采集 |
-| `src/run_from_round1.py` | 逐轮交互与历史反馈 |
-| `src/prompts_v11_public_observation.py` | 主实验规则 |
-| `src/prompts_paraphrase_b.py`、`src/run_paraphrase_b.py` | 等义提示词与实验采集 |
-| `src/mixed_partner_core.py`、`src/run_mixed_partner.py` | 混合伙伴设置与实验采集 |
-| `src/run_public_observation_pilot.py`中的`tasks()` | 20项理解检查 |
-| `src/qwen_api.py`、`src/deepseek_api.py`、`src/gpt_luna_recovery_api.py` | 模型API调用 |
-| `offline_check.py` | 离线流程检查 |
-| `analyze.py` | 统计分析与绘图 |
+| `reproduce.py` | Unified experiment entry point |
+| `src/run_formal_v11.py`, `src/run_gpt_luna_formal.py` | Main-experiment collection |
+| `src/run_from_round1.py` | Round-by-round interactions and historical feedback |
+| `src/prompts_v11_public_observation.py` | Main-experiment rules |
+| `src/prompts_paraphrase_b.py`, `src/run_paraphrase_b.py` | Paraphrased prompts and experiment collection |
+| `src/mixed_partner_core.py`, `src/run_mixed_partner.py` | Mixed-partner settings and collection |
+| `tasks()` in `src/run_public_observation_pilot.py` | The 20 comprehension checks |
+| `src/qwen_api.py`, `src/deepseek_api.py`, `src/gpt_luna_recovery_api.py` | Model API clients |
+| `offline_check.py` | Offline workflow checks |
+| `analyze.py` | Statistical analysis and plotting |
 
-提示词由上述模块组装。各轮提供此前全部真实贡献和目标智能体自身收益，以及本轮伙伴观点；第1轮没有行为历史。
+Prompts are assembled by these modules. Each round presents all previous actual contributions, the target agent's own payoffs, and the partners' current-round opinions. The first round contains no behavioral history.
