@@ -1,0 +1,18 @@
+{
+  "offline_regression_tests": 6,
+  "offline_tests_passed": true,
+  "plan_only_entries_verified": [
+    "main",
+    "main-gpt",
+    "paraphrase",
+    "mixed"
+  ],
+  "portable_analysis_synthetic_statistics_test": "passed",
+  "plotting_test": "not run: matplotlib absent in packaging runtime; requirements.txt declares dependency",
+  "API_requests_during_packaging": 0,
+  "original_experiment_data_included": false,
+  "credential_like_literals_found": 0,
+  "absolute_windows_paths_found": 0,
+  "source_module_count": 22,
+  "notes": "No live API or current model availability verification performed; synthetic outputs excluded."
+}

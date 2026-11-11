@@ -1,0 +1,134 @@
+[
+  {
+    "file": "src/run_mixed_partner.py",
+    "original_sha256": "5502ac9351c4c396c38925642b98c40d08fdbb29dab5f55b2c6d68ede190bba1",
+    "packaged_sha256": "5502ac9351c4c396c38925642b98c40d08fdbb29dab5f55b2c6d68ede190bba1",
+    "adapted": false
+  },
+  {
+    "file": "src/run_pilot_v8.py",
+    "original_sha256": "34f174f74eb3426dcc7e07cce7c2b6308e13c1e91954db0e639cad6f1f3f5d09",
+    "packaged_sha256": "13fc88555b35ad0ae93f1fe397176de63abb65239e23aed8f26b2edb5128dcaf",
+    "adapted": false
+  },
+  {
+    "file": "src/check_revision_r1.py",
+    "original_sha256": "20be085003f1c07f72084aeed07d5d6b89cf20caeb3e23b76f67e77c4863ce9e",
+    "packaged_sha256": "436b50b3ff38a5c48e7538306d7bf7b264f7d8dd8c1c5bab8bea3a9478e97ad2",
+    "adapted": false
+  },
+  {
+    "file": "src/prompts_v7.py",
+    "original_sha256": "a91c715d94463f533b08c795938ff2367fdfcb1f6e0126803947ad768708a6e3",
+    "packaged_sha256": "a91c715d94463f533b08c795938ff2367fdfcb1f6e0126803947ad768708a6e3",
+    "adapted": false
+  },
+  {
+    "file": "src/qwen_api.py",
+    "original_sha256": "22efd1f7c103e606401ec95e7dc9132eadd50c71b03d414676f48455889908a3",
+    "packaged_sha256": "041c272fdcf23725934d600be65620c7956fda21b93df2d024744e077e41d77b",
+    "adapted": true
+  },
+  {
+    "file": "src/run_local_v7.py",
+    "original_sha256": "a1369f91ffa8dad8de73b05f97373e9a3095c490ec3224ab36d7532b8cbbaad8",
+    "packaged_sha256": "519d0dc1104be6c971ddf4607aed3296e609228caa726a06ae7121bdfaf9ba5b",
+    "adapted": false
+  },
+  {
+    "file": "src/design_v7.py",
+    "original_sha256": "8128111e4714ed097098714cac319a119a90aa2b9adca6d9b7ac16e2b21fc771",
+    "packaged_sha256": "8128111e4714ed097098714cac319a119a90aa2b9adca6d9b7ac16e2b21fc771",
+    "adapted": false
+  },
+  {
+    "file": "src/run_current_multiround.py",
+    "original_sha256": "1a02c86e3b216ef1b675c0d639864f440c58b17064032f48bcc5f38a2503002f",
+    "packaged_sha256": "99ba9fabcbe3e7e4b57552f763df49b6cefcc58ff24a667e25255ad463992e9d",
+    "adapted": false
+  },
+  {
+    "file": "src/prompts_v11_public_observation.py",
+    "original_sha256": "62642c5ed35a85e080db6213a38ec70f8833ab73126baa9a012dab96faac8692",
+    "packaged_sha256": "5bf20aa3a1f1b9882d909e32573fccce7e313b4e99d6e9831c94f68c0fd01a5b",
+    "adapted": false
+  },
+  {
+    "file": "src/gpt_luna_recovery_api.py",
+    "original_sha256": "239c63380959f87084dd128ec65bec4a8d06ae0c9e41751f317c39d2ccf00baf",
+    "packaged_sha256": "af9161cfcd5902813bcc9980b0b3d219b64dbeb662910198b9cfcd1e69b39a43",
+    "adapted": true
+  },
+  {
+    "file": "src/deepseek_api.py",
+    "original_sha256": "5a482e94aa0e1f2e32b90ca793adededc40ef65aba29f22d100eb12dcd798237",
+    "packaged_sha256": "ac32e394f3ffc9a9ecbe99e93b9a6d2e18282ec43823fe7e57697d0743380a1f",
+    "adapted": true
+  },
+  {
+    "file": "src/run_deepseek_from_round1.py",
+    "original_sha256": "c4a273c4e83736d5960e94e622fbbbf699921c20f43410ac7f852ec6a3dee539",
+    "packaged_sha256": "46d898a642f109ac224cd7ec10895412d20094cdf57cfab3448a693ab5569643",
+    "adapted": false
+  },
+  {
+    "file": "src/run_deepseek_replication.py",
+    "original_sha256": "f56390c23ee89931b5dac68d744f6434c13615238a8c29e977ad6b4029578d9e",
+    "packaged_sha256": "f38b9f87838e9952fb96b57410c99fee1b979e5cae6a7b81564dad040ad2c69c",
+    "adapted": false
+  },
+  {
+    "file": "src/recheck_plus_r1.py",
+    "original_sha256": "45219676ea588714ca88a57a035091200c39aedab8dc804f9ade110da7a7a95e",
+    "packaged_sha256": "25a08fdcdaa7504385e43ad51c88612b3048906e1c17ef3318f065f1e05059a2",
+    "adapted": false
+  },
+  {
+    "file": "src/qualify_flash_thinking.py",
+    "original_sha256": "399a5f85d67cd1d6d72de21312ebab69ada0027629e1163bc34f9c5adca26ad3",
+    "packaged_sha256": "82c102ef2d0b42493ea7ff1e389d976849605c0a71dd8d2f277e64c2511b2437",
+    "adapted": false
+  },
+  {
+    "file": "src/run_from_round1.py",
+    "original_sha256": "949dbe6d390262979f2e0ae703edd388e732438854f007ec87519784a00a4c40",
+    "packaged_sha256": "7c303e0870c007dbc782446a246f076d1f9dcdfd5320ec32755f6cc4249a861a",
+    "adapted": false
+  },
+  {
+    "file": "src/run_public_observation_pilot.py",
+    "original_sha256": "4c0896a1ace180b354c0f0bce840849442732e834ba69072eb2a1d9b06cd8794",
+    "packaged_sha256": "30ce607137d57a1537ef7d0c878ff48b2b94560e68fd994900e34bfe2bbba58c",
+    "adapted": false
+  },
+  {
+    "file": "src/mixed_partner_core.py",
+    "original_sha256": "4d854481ac5b2f83bf021b008672615491dc72b6f6af76a708ee02a3fbfa08f8",
+    "packaged_sha256": "4d854481ac5b2f83bf021b008672615491dc72b6f6af76a708ee02a3fbfa08f8",
+    "adapted": false
+  },
+  {
+    "file": "src/run_paraphrase_b.py",
+    "original_sha256": "a378dd948d5dda3b9fe726807700904a1218bb9c5f50f345d771ae2ac1918746",
+    "packaged_sha256": "a378dd948d5dda3b9fe726807700904a1218bb9c5f50f345d771ae2ac1918746",
+    "adapted": false
+  },
+  {
+    "file": "src/prompts_paraphrase_b.py",
+    "original_sha256": "672ed36d764d7400600ef8f866f922ca506043c8f9621e4421e0eead74ef39d0",
+    "packaged_sha256": "672ed36d764d7400600ef8f866f922ca506043c8f9621e4421e0eead74ef39d0",
+    "adapted": false
+  },
+  {
+    "file": "src/run_gpt_luna_formal.py",
+    "original_sha256": "cb148578ee82125b3682481dfd8d85943b77eed51c2f7c5b82d9f516346a5c95",
+    "packaged_sha256": "cb148578ee82125b3682481dfd8d85943b77eed51c2f7c5b82d9f516346a5c95",
+    "adapted": false
+  },
+  {
+    "file": "src/run_formal_v11.py",
+    "original_sha256": "21b1c34b1e02a548b6a4db5e2ed4157be1375e8f251b49b923bab3eca672ace0",
+    "packaged_sha256": "d03bd6a1ed367a69f52e95abfde0cc99d8fce3734c3fb1aeed40e3b660c284a8",
+    "adapted": false
+  }
+]

@@ -1,0 +1,30 @@
+{
+  "base_url": "https://api.deepseek.com",
+  "model": "deepseek-flash",
+  "thinking": {
+    "type": "enabled"
+  },
+  "reasoning_effort": "low",
+  "top_p": 0.95,
+  "max_tokens": 8192,
+  "response_format": {
+    "type": "json_object"
+  },
+  "timeout_seconds": 120,
+  "max_input_bytes_per_request": 20000,
+  "local_spend_cap_cny": 8.0,
+  "budget_ledger_file": "deepseek_formal_v11_budget.jsonl",
+  "price_cny_per_million": {
+    "peak": {
+      "input_cache_miss": 2,
+      "input_cache_hit": 0.04,
+      "output": 8
+    },
+    "off_peak": {
+      "input_cache_miss": 1,
+      "input_cache_hit": 0.02,
+      "output": 4
+    }
+  },
+  "note": "Authorized formal v11: six conditions50 complete independent10-round games. Fixed settings. Only technical failures replaced from round1; all attempts retained. Provider order DeepSeek then Qwen."
+}

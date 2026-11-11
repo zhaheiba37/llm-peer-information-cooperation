@@ -1,0 +1,22 @@
+{
+  "provider": "aliyun_bailian",
+  "region": "cn-beijing",
+  "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+  "model": "qwen3.8-flash",
+  "enable_thinking": true,
+  "temperature": 0.7,
+  "top_p": 0.95,
+  "max_tokens": 8192,
+  "timeout_seconds": 60,
+  "price_cny_per_million_input": 0.8,
+  "price_cny_per_million_output": 2.7,
+  "local_spend_cap_cny": 8.0,
+  "max_input_bytes_per_request": 20000,
+  "note": "Authorized formal v11: six conditions50 complete independent10-round games. Fixed settings. Only technical failures replaced from round1; all attempts retained. Provider order DeepSeek then Qwen.",
+  "thinking_budget": 1024,
+  "budget_ledger_file": "qwen_formal_v11_budget.jsonl",
+  "settle_usage_budget": true,
+  "response_format": {
+    "type": "json_object"
+  }
+}

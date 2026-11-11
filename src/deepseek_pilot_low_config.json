@@ -1,0 +1,30 @@
+{
+  "base_url": "https://api.deepseek.com",
+  "model": "deepseek-flash",
+  "thinking": {
+    "type": "enabled"
+  },
+  "reasoning_effort": "low",
+  "top_p": 0.95,
+  "max_tokens": 4096,
+  "response_format": {
+    "type": "json_object"
+  },
+  "timeout_seconds": 120,
+  "max_input_bytes_per_request": 20000,
+  "local_spend_cap_cny": 3.0,
+  "budget_ledger_file": "deepseek_replication_budget.jsonl",
+  "price_cny_per_million": {
+    "peak": {
+      "input_cache_miss": 2,
+      "input_cache_hit": 0.04,
+      "output": 8
+    },
+    "off_peak": {
+      "input_cache_miss": 1,
+      "input_cache_hit": 0.02,
+      "output": 4
+    }
+  },
+  "note": "Historical experimental configuration; prices and alias availability must be checked before a new API run."
+}

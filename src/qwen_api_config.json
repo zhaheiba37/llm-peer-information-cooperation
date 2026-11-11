@@ -1,0 +1,16 @@
+{
+  "provider": "aliyun_bailian",
+  "region": "cn-beijing",
+  "base_url": "https://dashscope.aliyuncs.com/compatible-mode/v1",
+  "model": "qwen3.7-plus-2026-05-26",
+  "enable_thinking": false,
+  "temperature": 0.7,
+  "top_p": 0.95,
+  "max_tokens": 256,
+  "timeout_seconds": 60,
+  "price_cny_per_million_input": 2,
+  "price_cny_per_million_output": 8,
+  "local_spend_cap_cny": 1.0,
+  "max_input_bytes_per_request": 20000,
+  "note": "Historical experimental configuration; prices and alias availability must be checked before a new API run."
+}
