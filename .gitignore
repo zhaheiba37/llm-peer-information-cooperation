@@ -1,0 +1,9 @@
+__pycache__/
+*.pyc
+.env
+*API_key*
+src/runs/*
+*.jsonl
+analysis_output/
+tmp/*
+*_budget*
